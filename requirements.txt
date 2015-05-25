@@ -1,4 +1,5 @@
 cffi==1.0.3
+characteristic==14.3.0
 cryptography==0.9
 cssselect==0.9.1
 Django==1.8.2
@@ -7,10 +8,12 @@ idna==2.0
 ipaddress==1.0.7
 lxml==3.4.4
 pyasn1==0.1.7
+pyasn1-modules==0.0.5
 pycparser==2.13
 pyOpenSSL==0.15.1
 queuelib==1.2.2
 Scrapy==0.24.6
+service-identity==14.0.0
 six==1.9.0
 Twisted==15.2.1
 w3lib==1.11.0
