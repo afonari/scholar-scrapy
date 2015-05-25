@@ -36,6 +36,12 @@ class GscholarSpider(CrawlSpider):
             #
             item['name'] = colleague.xpath(
                 'div[@class="gsc_1usr_text"]/h3[@class="gsc_1usr_name"]/a/text()').extract()[0]
+            #
+            item['email_domain'] = colleague.xpath(
+                'div[@class="gsc_1usr_text"]/div[@class="gsc_1usr_emlb"]/text()').extract()[0]
+            item['email_domain'] = item['email_domain'].strip().replace("@","")
+            #
+            
             #item['title'] = question.xpath(
             #    'a[@class="question-hyperlink"]/text()').extract()[0]
             items.append(item)

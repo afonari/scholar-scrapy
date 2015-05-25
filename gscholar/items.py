@@ -12,3 +12,4 @@ class GscholarItem(Item):
     # define the fields for your item here like:
 
     name = Field()
+    email_domain = Field()
