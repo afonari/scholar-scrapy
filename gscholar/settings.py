@@ -13,5 +13,7 @@ BOT_NAME = 'gscholar'
 SPIDER_MODULES = ['gscholar.spiders']
 NEWSPIDER_MODULE = 'gscholar.spiders'
 
+DOWNLOAD_DELAY = 5
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gscholar (+http://www.yourdomain.com)'
