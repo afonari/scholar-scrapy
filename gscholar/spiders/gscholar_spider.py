@@ -38,7 +38,7 @@ class GscholarSpider(Spider):
             for colleague in colleagues:
                 redirect_url = 'https://scholar.google.com/citations?user=' + colleague['id'] + '&hl=en&view_op=list_colleagues'
                 self.log('SASHA: requesting another list_colleague url: %s ' % redirect_url)
-                #yield Request(redirect_url, callback=self.parse)
+                yield Request(redirect_url, callback=self.parse)
     #
     def parse_colleagues(self, response):
         self.log('SASHA: Entered parse_colleagues')
