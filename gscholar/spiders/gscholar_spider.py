@@ -18,7 +18,7 @@ class GscholarSpider(CrawlSpider):
         #Rule(LinkExtractor(allow=r'citations\?user='),
         #    follow=True)
     ]
-
+    #
     def process_value(self, value):
         self.log('[SASHA]: Hi, this is an item page! %s' % value)
         if "citations?user=" in value:
