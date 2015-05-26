@@ -15,7 +15,7 @@ class GscholarSpider(Spider):
     name = 'gscholar'
     allowed_domains = ['scholar.google.com']
     start_urls = [
-        'https://scholar.google.com/citations?user=Zmwh_JAAAAAJ&hl=en',
+        'https://scholar.google.com/citations?user=zqzNbPIAAAAJ&hl=en',
     ]
 
     #rules = [
@@ -48,7 +48,7 @@ class GscholarSpider(Spider):
                 #
                 user, created = User.objects.get_or_create(id=colleague['id'], name=colleague['name'],
                     organization=org)
-                user.coauthors.add(author)
+                #user.coauthors.get_or_create(author)
                 #
                 redirect_url = 'https://scholar.google.com/citations?user=' + colleague['id'] + '&hl=en&view_op=list_colleagues'
                 self.log('SASHA: requesting another list_colleague url: %s ' % redirect_url)
@@ -76,9 +76,14 @@ class GscholarSpider(Spider):
             item['id'] = re.search(r'user=([\w\-]+)', user_url).group(1)
             #item.set_id_from_url(user_url)
             #
-            item['email_domain'] = colleague.xpath(
-                'div[@class="gsc_1usr_text"]/div[@class="gsc_1usr_emlb"]/text()').extract()[0]
-            item['email_domain'] = item['email_domain'].strip().replace("@","")
+            # some people don't have verified emails
+            try:
+                item['email_domain'] = colleague.xpath(
+                    'div[@class="gsc_1usr_text"]/div[@class="gsc_1usr_emlb"]/text()').extract()[0]
+                item['email_domain'] = item['email_domain'].strip().replace("@","")
+            #
+            except:
+                continue
             #
             items.append(item)
             #print item

@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = 'gscholar.spiders'
 
 DOWNLOAD_DELAY = 5
 
-DEPTH_LIMIT = 1
+DEPTH_LIMIT = 2
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gscholar (+http://www.yourdomain.com)'
