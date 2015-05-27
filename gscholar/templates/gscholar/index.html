@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css">
+  <script>
+  $(function() {
+  $("#orgs").autocomplete({
+    source: "api/get_orgs/",
+    minLength: 2,
+  });
+});
+  </script>
+</head>
+<body>
+
+
+<div class="ui-widget">
+  <label for="orgs">Organization: </label>
+  <input id="orgs">
+</div>
+
+
+</body>
+</html>
